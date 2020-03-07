@@ -6,7 +6,7 @@ MilightCct::MilightCct( MilightTransport  &transport):MilightClient(transport)  
 
 bool MilightCct::begin(uint8_t channel){
 	  uint8_t address[5] = CCT_ADDRESS;  // rgbw address
-    miLightTransport.openChannel (address, CCT_PACKET_LEN, channel);
+    return miLightTransport.openChannel (address, CCT_PACKET_LEN, channel);
 }
 
 bool MilightCct::newEvent(){

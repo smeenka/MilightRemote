@@ -5,7 +5,7 @@ MilightRgbw::MilightRgbw( MilightTransport &transport):MilightClient(transport) 
 
 bool MilightRgbw::begin(uint8_t channel){
   	uint8_t address[5] = RGBW_ADDRESS;  // rgbw address
-    miLightTransport.openChannel (address, RGBW_PACKET_LEN, channel);
+    return miLightTransport.openChannel (address, RGBW_PACKET_LEN, channel);
 }
 
 bool MilightRgbw::newEvent(){

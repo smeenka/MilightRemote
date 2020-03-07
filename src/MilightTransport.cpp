@@ -86,8 +86,6 @@ bool MilightTransport::validateChecksum(uint8_t *data, uint8_t len) {
       byte = byte >> 1;
     }
   }
-  uint8_t low = state & 0xFF;
-  uint8_t high = (state >> 8) & 0xFF;
   /*
   Serial.print(" calculated checksum: " );
   Serial.print(state, HEX );
