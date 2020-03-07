@@ -1,3 +1,1 @@
-This is the antonov variant of the milight library
-
-Note the the library MilightRemote is the arduino variant
+Platform IO library for Milight remotes with as radio an NRF24L01 radio chip
