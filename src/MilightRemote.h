@@ -1,13 +1,13 @@
 #include <Arduino.h>
 #include <MilightTransport.h>
 
-#ifndef _MILIGHTCLIENT_H
-#define _MILIGHTCLIENT_H
+#ifndef _MILIGHTREMOTE_H
+#define _MILIGHTREMOTE_H
 
 enum Button_t { NONE, ON, OFF, HUE, BRIGTHNESS,  TEMPERATURE, MODE, UP, DOWN, LEFT, RIGHT };
 
 
-class MilightClient {
+class MilightRemote {
 public:
 
 
@@ -25,7 +25,7 @@ public:
       uint8_t  programNr;
   }Status_t;
 
-  MilightClient(MilightTransport &miLightTransport );
+  MilightRemote(MilightTransport &miLightTransport );
 
   void begin(uint8_t* address);
   void end();

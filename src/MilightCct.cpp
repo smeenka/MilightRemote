@@ -1,6 +1,6 @@
 #include <MilightCct.h>
 
-MilightCct::MilightCct( MilightTransport  &transport):MilightClient(transport)  {
+MilightCct::MilightCct( MilightTransport  &transport):MilightRemote(transport)  {
 }
 
 

@@ -1,5 +1,5 @@
 #include <Arduino.h>
-#include <MilightClient.h>
+#include <MilightRemote.h>
 #include <MilightTransport.h>
 
 #ifndef _MILIGHTCCT_H
@@ -32,7 +32,7 @@
 #define  REMOTE_CHANNEL_HIGH    (uint8_t*) 76
 
 
-class MilightCct : public MilightClient{
+class MilightCct : public MilightRemote{
 public:
   // Used to indicate that the start value for a transition should be fetched from current state
 

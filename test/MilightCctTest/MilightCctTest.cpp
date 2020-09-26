@@ -5,10 +5,10 @@ NRF24L01Simple radio(10,9);
 MilightTransport transport(radio);
 MilightCct cct(transport);
 
-MilightClient::Status_t status;
+MilightRemote::Status_t status;
 
 
-//MilightClient& client = cct;
+//MilightRemote& remote = cct;
 // Which pin on the Arduino is connected to the NeoPixels?
 // On a Trinket or Gemma we suggest changing this to 1:
 #define LED_PIN     2

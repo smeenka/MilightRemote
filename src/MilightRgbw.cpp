@@ -1,6 +1,6 @@
 #include <MilightRgbw.h>
 
-MilightRgbw::MilightRgbw( MilightTransport &transport):MilightClient(transport)  {
+MilightRgbw::MilightRgbw( MilightTransport &transport):MilightRemote(transport)  {
 }
 
 bool MilightRgbw::begin(uint8_t channel){

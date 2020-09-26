@@ -1,5 +1,5 @@
 #include <Arduino.h>
-#include <MilightClient.h>
+#include <MilightRemote.h>
 #include <MilightTransport.h>
 
 #ifndef _MILIGHTRGBW_H
@@ -31,7 +31,7 @@
 #define  REMOTE_CHANNEL_HIGH    72
 
 
-class MilightRgbw : public MilightClient{
+class MilightRgbw : public MilightRemote{
 public:
   // Used to indicate that the start value for a transition should be fetched from current state
   MilightRgbw( MilightTransport &transport);
