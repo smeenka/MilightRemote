@@ -5,16 +5,23 @@ MilightCct::MilightCct( MilightTransport  &transport):MilightClient(transport)  
 
 
 bool MilightCct::begin(uint8_t channel){
-	  uint8_t address[5] = CCT_ADDRESS;  // rgbw address
-    return miLightTransport.openChannel (address, CCT_PACKET_LEN, channel);
+	  uint8_t address[5] = REMOTE_ADDRESS;  // rgbw address
+    return miLightTransport.openChannel (address, REMOTE_PACKET_LEN, channel);
 }
 
-bool MilightCct::newEvent(){
-  return miLightTransport.packetAvailable(); 
-}
+
+/*
+#define  LENGTH       0
+#define  PROTOCOL     1
+#define  ID_HIGH      2
+#define  ID_LOW       3
+#define  GROUP        4
+#define  COMMAND      5
+#define  PACkET_INDEX 6
+*/
 
 bool MilightCct::updateStatus(Status_t* status){
-  if (miLightTransport.getPacket(packet, CCT_PACKET_LEN)) {
+  if (miLightTransport.getPacket(packet, REMOTE_PACKET_LEN)) {
 
       if (parsePacket(status)) {
         return true;
@@ -25,16 +32,8 @@ bool MilightCct::updateStatus(Status_t* status){
       Serial.print("C");
       return false;
   }
+  return false;
 }
-/*
-#define  LENGTH       0
-#define  PROTOCOL     1
-#define  ID_HIGH      2
-#define  ID_LOW       3
-#define  GROUP        4
-#define  COMMAND      5
-#define  PACkET_INDEX 6
-*/
 
 bool MilightCct::parsePacket(Status_t* status){
 	if ( packet[6] == messageNr) {

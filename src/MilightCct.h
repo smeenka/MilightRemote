@@ -5,11 +5,11 @@
 #ifndef _MILIGHTCCT_H
 #define _MILIGHTCCT_H
 
-#define  CCT_PACKET_LEN   10
+#define  REMOTE_PACKET_LEN   10
 
 // address is 0x55 0xAA 0x05 0x0A with prefix 0xAA and postfix 0x5
 // This all 4 bits shifted left
-#define  CCT_ADDRESS      { 0x55, 0x5A, 0xA0,  0x50,  0xAA}
+#define  REMOTE_ADDRESS   { 0x55, 0x5A, 0xA0,  0x50,  0xAA}
 
 
 #define  CCT_ALL_ON       		0x5
@@ -27,10 +27,9 @@
 #define  CCT_TEMPERATURE_UP  	0xE
 #define  CCT_TEMPERATURE_DOWN   0xF
 
-
-#define  CCT_CHANNEL_LOW     6
-#define  CCT_CHANNEL_MEDIUM  41  
-#define  CCT_CHANNEL_HIGH    76
+#define  REMOTE_CHANNEL_LOW     (uint8_t*) 6
+#define  REMOTE_CHANNEL_MEDIUM  (uint8_t*) 41  
+#define  REMOTE_CHANNEL_HIGH    (uint8_t*) 76
 
 
 class MilightCct : public MilightClient{
@@ -38,15 +37,14 @@ public:
   // Used to indicate that the start value for a transition should be fetched from current state
 
   MilightCct( MilightTransport &transport);
-
-
   bool begin(uint8_t channel);
 
-  bool newEvent();
-  bool updateStatus(Status_t* status);
+  bool updateStatus(Status_t* status) override;
+ 
 
 protected:
-  uint8_t packet[CCT_PACKET_LEN];
+  uint8_t packet[REMOTE_PACKET_LEN];
+
   bool parsePacket(Status_t* status);
 	
 };

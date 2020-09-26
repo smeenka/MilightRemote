@@ -19,3 +19,7 @@ void MilightClient::unpair(){
 
 }
 
+bool MilightClient::newEvent(){
+  return miLightTransport.packetAvailable(); 
+}
+

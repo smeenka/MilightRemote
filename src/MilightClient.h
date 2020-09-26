@@ -27,8 +27,6 @@ public:
 
   MilightClient(MilightTransport &miLightTransport );
 
-
-
   void begin(uint8_t* address);
   void end();
 
@@ -36,9 +34,8 @@ public:
   void pair();
   void unpair();
 
-  // Parse a byte packet into a status 
-  // packet and status must be provided by the caller
-  bool parsePacket(uint8_t* packet, uint8_t len, Status_t* status);
+  virtual bool updateStatus(Status_t* status);
+  bool newEvent();
 
 protected:
   MilightTransport   &miLightTransport;

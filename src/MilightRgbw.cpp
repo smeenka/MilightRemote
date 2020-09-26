@@ -4,16 +4,13 @@ MilightRgbw::MilightRgbw( MilightTransport &transport):MilightClient(transport) 
 }
 
 bool MilightRgbw::begin(uint8_t channel){
-  	uint8_t address[5] = RGBW_ADDRESS;  // rgbw address
-    return miLightTransport.openChannel (address, RGBW_PACKET_LEN, channel);
+  	uint8_t address[5] = REMOTE_ADDRESS;  // rgbw address
+    return miLightTransport.openChannel (address, REMOTE_PACKET_LEN, channel);
 }
 
-bool MilightRgbw::newEvent(){
-  return miLightTransport.packetAvailable(); 
-}
 
 bool MilightRgbw::updateStatus(Status_t* status){
-  if (miLightTransport.getPacket(packet, RGBW_PACKET_LEN)) {
+  if (miLightTransport.getPacket(packet, REMOTE_PACKET_LEN)) {
 
       if (parsePacket(status)) {
         return true;
@@ -25,6 +22,7 @@ bool MilightRgbw::updateStatus(Status_t* status){
       return false;
   }
 }
+
 /*
 #define  LENGTH       0
 #define  PROTOCOL     1

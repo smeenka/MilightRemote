@@ -37,7 +37,7 @@ void setup()
 {
     Serial.begin(115200);
     Serial.println("MilightTransport test. Use rgbw milight remote please");
-    rgbw.begin(RGBW_CHANNEL_LOW);
+    rgbw.begin(REMOTE_CHANNEL_LOW);
     radio.printDetails(); 
 
     strip.begin();           // INITIALIZE NeoPixel strip object (REQUIRED)

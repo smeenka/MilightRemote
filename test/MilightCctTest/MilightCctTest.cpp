@@ -5,8 +5,10 @@ NRF24L01Simple radio(10,9);
 MilightTransport transport(radio);
 MilightCct cct(transport);
 
-MilightCct::Status_t status;
+MilightClient::Status_t status;
 
+
+//MilightClient& client = cct;
 // Which pin on the Arduino is connected to the NeoPixels?
 // On a Trinket or Gemma we suggest changing this to 1:
 #define LED_PIN     2
@@ -36,8 +38,8 @@ void colorWipe(uint32_t color, int wait) {
 void setup()
 {
     Serial.begin(115200);
-    Serial.println("MilightTransport test. Use rgbw milight remote please");
-    cct.begin(CCT_CHANNEL_LOW);
+    Serial.println("MilightTransport test. Use cct milight remote please");
+    cct.begin(REMOTE_CHANNEL_LOW);
     radio.printDetails(); 
 
     strip.begin();           // INITIALIZE NeoPixel strip object (REQUIRED)

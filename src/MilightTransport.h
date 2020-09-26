@@ -33,7 +33,6 @@ public:
   // Note that the packet must be 2 longer dan the actual data due to the checksum
   bool getPacket(uint8_t* packet, uint8_t len);
 
-
 private:
   uint8_t reverted[32];
   void reverseBits(uint8_t* input, uint8_t* output, uint8_t len);

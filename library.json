@@ -3,7 +3,7 @@
   "keywords": "wireless, 2.4GHz, nrl24l01+, spi, Milight, remote control",
   "description": "A simple library to receive and decode the commands from several milight remote controls (Cct and Rgb)",
 
-   "version": "1.0.0", 
+   "version": "2.0.0", 
  
   "repository":
   {

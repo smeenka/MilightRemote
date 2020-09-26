@@ -5,10 +5,10 @@
 #ifndef _MILIGHTRGBW_H
 #define _MILIGHTRGBW_H
 
-#define  RGBW_PACKET_LEN   10
+#define  REMOTE_PACKET_LEN   10
 // address is 0x25 0x8B 0x14 0x 0x7A with prefix 0xAA and postfix 0x5
 // This all 4 bits shifted left
-#define  RGBW_ADDRESS      { 0x52, 0x58, 0xB1,  0x47,  0xAA}
+#define  REMOTE_ADDRESS    { 0x52, 0x58, 0xB1,  0x47,  0xAA}
 
 #define  RGBW_ALL_ON       0x01
 #define  RGBW_ALL_OFF      0x02
@@ -26,27 +26,21 @@
 #define  RGBW_BRIGHTNESS   0x0E
 #define  RGBW_HUE          0x0F
 
-#define  RGBW_CHANNEL_LOW     11
-#define  RGBW_CHANNEL_MEDIUM  41  
-#define  RGBW_CHANNEL_HIGH    72
+#define  REMOTE_CHANNEL_LOW     11
+#define  REMOTE_CHANNEL_MEDIUM  41  
+#define  REMOTE_CHANNEL_HIGH    72
 
 
 class MilightRgbw : public MilightClient{
 public:
   // Used to indicate that the start value for a transition should be fetched from current state
-
   MilightRgbw( MilightTransport &transport);
-
-
   bool begin(uint8_t channel);
-
-  bool newEvent();
-  bool updateStatus(Status_t* status);
-
+  bool updateStatus(Status_t* status) override;  
 protected:
-  uint8_t packet[RGBW_PACKET_LEN];
+  uint8_t packet[REMOTE_PACKET_LEN];
   bool parsePacket(Status_t* status);
-	
+
 };
 
 #endif
